@@ -5,7 +5,7 @@ Fetches numbers from txt files and automatically places them into a list for 백
 코딩 테스트 준비를 위해 스터디를 진행하기로 했는데, 백준 문제를 풀면서 문제 번호를 수동으로 리스트에 추가하는 것이 귀찮아서 만들었습니다.
 
 ## 데모 예시
-<video controls src="static/shortdemo.mp4" title="Demo"></video>
+![demogif](static/demogif.gif)
 
 ## 사용법
 1. Sort by # Solved로 정렬 한 뒤, 문제 번호를 갖고 온다.
