@@ -36,11 +36,14 @@ password_input.send_keys(Keys.RETURN)
 time.sleep(3)
 
 # Navigate to the specific workbook page
-workbook_url = 'https://www.acmicpc.net/group/workbook/edit/21964/73392'
+workbook_url = 'https://www.acmicpc.net/group/workbook/edit/21964/73393'
 driver.get(workbook_url)
 
+# text path
+text = 'problems/dfs.txt'
+
 # Read numbers from file and submit each one
-with open('bfs.txt', 'r') as file:
+with open(text, 'r') as file:
     for line in file:
         number = line.strip()
         
