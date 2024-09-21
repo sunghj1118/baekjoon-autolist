@@ -5,6 +5,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 import os
 from dotenv import load_dotenv
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Load environment variables from .env file
 load_dotenv()
@@ -31,10 +33,10 @@ password_input.send_keys(os.getenv('PASSWORD'))
 password_input.send_keys(Keys.RETURN)
 
 # Wait for login to complete
-time.sleep(5)
+time.sleep(3)
 
 # Navigate to the specific workbook page
-workbook_url = 'https://www.acmicpc.net/group/workbook/edit/21964/73389'
+workbook_url = 'https://www.acmicpc.net/group/workbook/edit/21964/73392'
 driver.get(workbook_url)
 
 # Read numbers from file and submit each one
@@ -54,6 +56,16 @@ with open('bfs.txt', 'r') as file:
         time.sleep(1)
 
 time.sleep(2)
+
+try:
+    # Wait for the button to be clickable and then click it
+    modify_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[@class='btn btn-primary' and text()='수정하기']"))
+    )
+    modify_button.click()
+    print("Clicked the '수정하기' button successfully.")
+except Exception as e:
+    print(f"Failed to click the '수정하기' button: {e}")
 
 # Close the browser after completion
 driver.quit()
